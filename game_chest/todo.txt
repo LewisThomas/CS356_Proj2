@@ -1,0 +1,33 @@
+1. Set up the router
+2. Sign up
+3. Login
+4. Splash
+5. Main screen
+6. Add game
+
+X. View game
+
+Pages
+
+Splash
+
+Sign up
+
+Log in
+
+Main screen
+    - Global state
+    - Filtering
+    - Grid
+
+Add Game
+    - Images
+    - Tags
+
+View game
+    - 
+    - Last
+
+If time:
+
+Images
