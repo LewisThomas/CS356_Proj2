@@ -48,8 +48,15 @@ class SplashPage extends Component {
           <h1 style={{ color: "#FFFFFF", WebkitTextStroke: "0.04em black", fontSize: "64pt", margin: "0pt" }}>Game Chest</h1>
         </div>
         <div className="mainspace">
-          <button className="signupbutton" onClick={() => this.switchBool()}>{this.state.toggle ? "True" : "False"}</button>
-          <button className="signupbutton" onClick={() => this.switchBool()}>{this.state.toggle ? "True" : "False"}</button>
+          <h3 style={{ color: "#FFFFFF", WebkitTextStroke: "0.04em black", fontSize: "52pt", margin: "0pt", padding: "25px" }}>All Of Your Games</h3>
+          <h3 style={{ color: "#FFFFFF", WebkitTextStroke: "0.04em black", fontSize: "52pt", margin: "0pt" }}>Sorted For Your Convience</h3>
+          <div>
+            <button className="signupbutton" onClick={() => this.switchBool()}>{}SignUp</button>
+          </div>
+          <div>
+            <button className="loginbutton" onClick={() => this.switchBool()}>{}Login</button>
+          </div>
+
         </div>
 
         {this.state.textInput}

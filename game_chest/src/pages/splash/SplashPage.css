@@ -2,16 +2,36 @@
 {
     width: 100%;
     background-color: #4476FF;
-    position: fixed;
 }
 .mainspace
 {
     background-image: url("chess.jpg");
     background-repeat: no-repeat;
     background-size: 1920px 1080px ;
-    height: 920px;
+    align-content: center;
+    height: 823px;
 }
 .signupbutton
 {
-    margin-top: 200px;
+    
+    margin-top: 180px;
+    background-image: url("./splashbutton.png");
+    background-size: cover;
+    height: 150px;
+    width: 387px;
+    border-radius: 75px;
+    color: white;
+    font-size: 36px;
+
+}
+.loginbutton
+{
+    margin-top: 50px;
+    background-image: url("./splashbutton.png");
+    background-size: cover;
+    height: 101px;
+    width: 258px;
+    border-radius: 50px;
+    color: white;
+    font-size: 24px;
 }

@@ -8,6 +8,7 @@ import './App.css';
 // import { render } from 'react-dom';
 import MainPage from './pages/main/MainPage';
 import SplashPage from './pages/splash/SplashPage';
+import SignupPage from './pages/signup/SignupPage';
 
 
 
@@ -52,9 +53,13 @@ class App extends Component {
             <Route path='/main'>
               <MainPage />
             </Route>
+            <Route path="/signup">
+              <SignupPage/>
+            </Route>
             <Route path='/'>
               <SplashPage />
             </Route>
+            
           </Switch>
       </Router>
     )
