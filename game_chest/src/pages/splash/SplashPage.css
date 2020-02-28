@@ -1,0 +1,17 @@
+.topbar
+{
+    width: 100%;
+    background-color: #4476FF;
+    position: fixed;
+}
+.mainspace
+{
+    background-image: url("chess.jpg");
+    background-repeat: no-repeat;
+    background-size: 1920px 1080px ;
+    height: 920px;
+}
+.signupbutton
+{
+    margin-top: 200px;
+}

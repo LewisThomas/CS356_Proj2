@@ -49,7 +49,7 @@ class MainPage extends Component {
     return (
           <div>
           <Navbar style={{backgroundColor: "#4476FF", margin:"0pt",textAlign: "center"}}>
-            <h1 style={{color:"#FFFFFF", WebkitTextStroke:"0.04em black", fontSize:"85pt"}}>Game Chest</h1>
+            <h1 style={{color:"#FFFFFF", WebkitTextStroke:"0.04em black", fontSize:"85pt", margin:"0pt"}}>Game Chest</h1>
           </Navbar>
           Hello
           </div>

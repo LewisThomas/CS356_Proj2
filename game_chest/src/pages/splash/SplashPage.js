@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
-import logo from '../../logo.svg';
-import {Input} from 'reactstrap'
-import '../../App.css';
+import React, { Component } from 'react';
+//import logo from '../../logo.svg';
+//import { Input } from 'reactstrap'
+//import {Navbar} from 'reactstrap'
+//import '../../App.css';
+import './SplashPage.css'
 // import { render } from 'react-dom';
 
 
@@ -24,13 +26,12 @@ class SplashPage extends Component {
       toggle: !this.state.toggle
     })
     console.log("switched", this.state.toggle)
-  
-  }
 
+  }
   onChange = (event) => {
-    // console.log(event)
+    //console.log(event)
     this.setState({
-      textInput: event.target.value 
+      textInput: event.target.value
     })
   }
 
@@ -38,27 +39,20 @@ class SplashPage extends Component {
   //   console.log("got bool", testBoolean)
   //   return testBoolean;
   // }
+  //<Input type="text" name="testInput" id="tagID" placeholder="ABCDEF" value={this.state.textInput} onChange={this.onChange} />
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> Hello world! and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <Input type="text" name="testInput" id="tagID" placeholder="ABCDEF" value={this.state.textInput} onChange={this.onChange}/>
-          <button onClick={() => this.switchBool()}>{this.state.toggle ? "True" : "False"}</button>
-          {this.state.textInput}
-        </header>
+        <div className="topbar">
+          <h1 style={{ color: "#FFFFFF", WebkitTextStroke: "0.04em black", fontSize: "64pt", margin: "0pt" }}>Game Chest</h1>
+        </div>
+        <div className="mainspace">
+          <button className="signupbutton" onClick={() => this.switchBool()}>{this.state.toggle ? "True" : "False"}</button>
+          <button className="signupbutton" onClick={() => this.switchBool()}>{this.state.toggle ? "True" : "False"}</button>
+        </div>
+
+        {this.state.textInput}
       </div>
     );
   }
