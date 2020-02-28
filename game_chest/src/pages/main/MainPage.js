@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router,
-        Switch,
-        Route} from 'react-router-dom'
+// import {BrowserRouter as Router,
+//         Switch,
+//         Route} from 'react-router-dom'
 // import logo from './logo.svg';
-// import {Input} from 'reactstrap'
-import './App.css';
+import {Navbar} from 'reactstrap'
+// import './App.css';
 // import { render } from 'react-dom';
-import MainPage from './pages/main/MainPage';
-import SplashPage from './pages/splash/SplashPage';
 
 
 
-class App extends Component {
+class MainPage extends Component {
 
   constructor(props) {
     super(props);
@@ -44,20 +42,19 @@ class App extends Component {
   //   console.log("got bool", testBoolean)
   //   return testBoolean;
   // }
-
+// prim color #4476FF
+// secondary color #6B8CE6
+// 
   render() {
     return (
-      <Router>
-          <Switch>
-            <Route path='/main'>
-              <MainPage />
-            </Route>
-            <Route path='/'>
-              <SplashPage />
-            </Route>
-          </Switch>
-      </Router>
-    )
+          <div>
+          <Navbar style={{backgroundColor: "#4476FF", margin:"0pt",textAlign: "center"}}>
+            <h1 style={{color:"#FFFFFF", WebkitTextStroke:"0.04em black", fontSize:"85pt"}}>Game Chest</h1>
+          </Navbar>
+          Hello
+          </div>
+    );
+
     // return (
     //   <div className="App">
     //     <header className="App-header">
@@ -82,4 +79,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default MainPage;
