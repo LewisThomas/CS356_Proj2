@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SignupPage.css'
+import './LoginPage.css'
 import {
     Col, Form,
     FormGroup, Label, Input,
@@ -10,11 +10,11 @@ const colStyle =
 {
     margin: "15pt",
     fontSize: "24pt",
-
+    
 };
 
 
-class SignupPage extends Component {
+class LoginPage extends Component {
 
     constructor(props) {
         super(props);
@@ -75,28 +75,6 @@ class SignupPage extends Component {
                                 />
                             </FormGroup>
                         </Col>
-                        <Col style={colStyle}>
-                            <FormGroup>
-                                <Label for="examplePassword">Confirm Password</Label>
-                                <Input
-                                    type="password"
-                                    name="password"
-                                    id="examplePassword"
-                                    placeholder="********"
-                                />
-                            </FormGroup>
-                        </Col>
-                        <Col style={colStyle}>
-                            <FormGroup>
-                                <Label>Email</Label>
-                                <Input
-                                    type="email"
-                                    name="email"
-                                    id="exampleEmail"
-                                    placeholder="myemail@email.com"
-                                />
-                            </FormGroup>
-                        </Col>
                         {this.renderRedirect()}
                         <Button onClick={this.setRedirect}>Submit</Button>
                         <Button>Cancel</Button>
@@ -107,4 +85,4 @@ class SignupPage extends Component {
     }
 }
 
-export default SignupPage;
+export default LoginPage;

@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 //import {Navbar} from 'reactstrap'
 //import '../../App.css';
 import './SplashPage.css'
+import { Redirect } from 'react-router-dom'
 // import { render } from 'react-dom';
 
 
@@ -17,10 +18,33 @@ class SplashPage extends Component {
 
     this.state = {
       toggle: false,
-      textInput: ""
+      textInput: "",
+      redirectSign: false,
+      redirectLog: false
     };
+    
   }
-
+  setRedirectSign = () => {
+    this.setState({
+      redirectSign: true
+    })
+  }
+  setRedirectLog = () => {
+    this.setState({
+      redirectLog: true
+    })
+  }
+  renderRedirectSign = () => {
+    if (this.state.redirectSign) {
+      console.log("test");
+      return <Redirect to='/signup' />
+    }
+  }
+  renderRedirectLog = () => {
+    if (this.state.redirectLog) {
+      return <Redirect to='/login' />
+    }
+  }
   switchBool = () => {
     this.setState({
       toggle: !this.state.toggle
@@ -51,10 +75,12 @@ class SplashPage extends Component {
           <h3 style={{ color: "#FFFFFF", WebkitTextStroke: "0.04em black", fontSize: "52pt", margin: "0pt", padding: "25px" }}>All Of Your Games</h3>
           <h3 style={{ color: "#FFFFFF", WebkitTextStroke: "0.04em black", fontSize: "52pt", margin: "0pt" }}>Sorted For Your Convience</h3>
           <div>
-            <button className="signupbutton" onClick={() => this.switchBool()}>{}SignUp</button>
+            {this.renderRedirectSign()}
+            <button className="signupbutton" onClick={this.setRedirectSign}>{}SignUp</button>
           </div>
           <div>
-            <button className="loginbutton" onClick={() => this.switchBool()}>{}Login</button>
+            {this.renderRedirectLog()}
+            <button className="loginbutton" onClick={this.setRedirectLog}>{}Login</button>
           </div>
 
         </div>

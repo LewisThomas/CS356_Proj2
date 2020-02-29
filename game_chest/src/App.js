@@ -9,6 +9,7 @@ import './App.css';
 import MainPage from './pages/main/MainPage';
 import SplashPage from './pages/splash/SplashPage';
 import SignupPage from './pages/signup/SignupPage';
+import LoginPage from './pages/Login/LoginPage';
 
 
 
@@ -56,9 +57,13 @@ class App extends Component {
             <Route path="/signup">
               <SignupPage/>
             </Route>
+            <Route path='/login'>
+              <LoginPage/>
+            </Route>
             <Route path='/'>
               <SplashPage />
             </Route>
+            
             
           </Switch>
       </Router>
