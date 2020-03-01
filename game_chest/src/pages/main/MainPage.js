@@ -62,12 +62,14 @@ class MainPage extends Component {
           <div style={{width: "100%", display:"table", height:"50.8rem"}}>
             <div style={{display: "table-row"}}>
               <div style={{width:"16vw", display: "table-cell", borderStyle:"solid", borderColor: "#707070", borderWidth: "5px",textAlign: "center"}}>
-                <SidebarItem buttonText="Tags" buttonColor="#4476FF"/>
+                <SidebarItem buttonText="Filter By" buttonColor="#4476FF"/>
                 <div style={{backgroundColor:"black", height:"6px"}}/>
                 {this.getFilterButtons()}
               </div>
               <div style={{display: "table-cell"}}>
-                a
+                <div style={{backgroundColor:"#6B8CE6", borderColor:"#F5F5F5", borderStyle:"solid", borderWidth:"5px", height:"75px", boxSizing:"border-box"}}>
+
+                </div>
               </div>
             </div>
           </div>

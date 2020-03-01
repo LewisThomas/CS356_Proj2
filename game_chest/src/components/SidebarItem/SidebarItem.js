@@ -47,7 +47,7 @@ class SidebarItem extends Component {
     render() {
         return (
         <div style={{backgroundColor: this.props.buttonColor, margin:"5px", height:"79px", textAlign:"center", paddingTop:"10px"}}>
-                <b className="gameChestText" style={{margin:"auto", fontSize:"3em", paddingTop:"50em"}}>{this.props.buttonText}</b>
+                <b className="gameChestText" style={{margin:"auto", fontSize:"3em"}}>{this.props.buttonText}</b>
             </div>
         );
     }
