@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 //         Route} from 'react-router-dom'
 // import logo from './logo.svg';
 import {Navbar} from 'reactstrap'
+import SidebarItem from '../../components/SidebarItem/SidebarItem'
 // import './App.css';
 // import { render } from 'react-dom';
 
@@ -38,6 +39,13 @@ class MainPage extends Component {
     })
   }
 
+  tempSidebarButtonNames = ["Dice", "Strategy"]
+  getFilterButtons = () => {
+    return this.tempSidebarButtonNames.map(function(v, i){
+      return <SidebarItem buttonText={v} buttonColor="#6B8CE6"/>
+    })
+  }
+
   // function getBool() {
   //   console.log("got bool", testBoolean)
   //   return testBoolean;
@@ -47,11 +55,23 @@ class MainPage extends Component {
 // 
   render() {
     return (
-          <div>
+          <div style={{height:"100%"}}>
           <Navbar style={{backgroundColor: "#4476FF", margin:"0pt",textAlign: "center"}}>
-            <h1 style={{color:"#FFFFFF", WebkitTextStroke:"0.04em black", fontSize:"85pt", margin:"0pt"}}>Game Chest</h1>
+            <h1 className="gameChestText">Game Chest</h1>
           </Navbar>
-          Hello
+          <div style={{width: "100%", display:"table", height:"50.8rem"}}>
+            <div style={{display: "table-row"}}>
+              <div style={{width:"16vw", display: "table-cell", borderStyle:"solid", borderColor: "#707070", borderWidth: "5px",textAlign: "center"}}>
+                <SidebarItem buttonText="Tags" buttonColor="#4476FF"/>
+                <div style={{backgroundColor:"black", height:"6px"}}/>
+                {this.getFilterButtons()}
+              </div>
+              <div style={{display: "table-cell"}}>
+                a
+              </div>
+            </div>
+          </div>
+          {/* hello */}
           </div>
     );
 
