@@ -8,6 +8,7 @@ import SidebarItem from '../../components/SidebarItem/SidebarItem'
 import BottomSidebarItem from '../../components/BottomSideBarItem/BottomSideBarItem'
 import person from './assets/personIcon.svg'
 import PlayerSelector from '../../components/PlayersSelector/PlayersSelector'
+import clockIcon from './assets/clockIcon.svg'
 // import './App.css';
 // import { render } from 'react-dom';
 
@@ -87,13 +88,17 @@ class MainPage extends Component {
               {this.getFilterButtons()}
               <BottomSidebarItem buttonText="Add Tag" buttonColor="#4476FF" value={this.state.newTagName} onChange={this.onTextSubmit}>
               </BottomSidebarItem>
-            </div>
-            <div style={{ display: "block" }}>
-              <div style={{ backgroundColor: "#6B8CE6", marginLeft: "16.5vw", borderColor: "#F5F5F5", borderStyle: "solid", borderWidth: "5px", height: "75px", boxSizing: "border-box" }}>
-                <b className="gameChestText" style={{ float: "left", fontSize: "35pt", marginLeft: "0.2em" }}>Players</b>
-                <PlayerSelector />
               </div>
-            </div>
+              <div style={{display: "block"}}>
+                <div style={{backgroundColor:"#6B8CE6", marginLeft:"16.5vw", borderColor:"#F5F5F5", borderStyle:"solid", borderWidth:"5px", height:"85px", boxSizing:"border-box"}}>
+                   <b className="gameChestText" style={{float:"left", fontSize:"35pt", marginLeft:"0.2em"}}>Players</b>
+                   <PlayerSelector/>
+                   <div style={{float:"right"}}>
+
+                      <Media object src={clockIcon} width="67" height="67" ></Media>
+                   </div>
+                </div>
+              </div>
           </div>
         </div>
         {/* hello */}
