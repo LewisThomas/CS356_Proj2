@@ -5,6 +5,7 @@ import {
 } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
 import person from './assets/personIcon.svg'
+import personGroup from './assets/groupOfPeople.png'
 
 class PlayersSelector extends Component {
 
@@ -32,10 +33,21 @@ class PlayersSelector extends Component {
     generatePlayerButton = (playerNum) => {
         return (
             <div style={{float:"left"}}>
-                <Media object src={person} width="70" height="70" ></Media>
-                <b className="gameChestText" style={{fontSize:"1.7em", marginLeft:"-0.6em", marginTop:"-2em", marginRight:"0.3em"}}>{playerNum}</b>
+                <Media object src={person} width="67" height="67" ></Media>
+                <b className="gameChestText" style={{fontSize:"1.7em", marginLeft:"-1.5em", marginTop:"-2em", marginRight:"0.6em"}}>{playerNum}</b>
             </div>
         )
+    }
+    generateMaxPlayersButton = () => {
+        return (
+            <div style={{float:"left", height:"59px", width:"125px", marginTop:"0.15em", backgroundSize:"contain",backgroundImage: "url(" + personGroup + ")"}}>
+                {/* <Media object src={personGroup} width="125" height="56" style={{paddingTop:"0.24em"}}></Media> */}
+                {/* <div style={{float:"right", height:"74px", width:"1px",zIndex:"100"}}> */}
+                    {/* <b className="gameChestText" style={{ fontSize: "1.7em", position:"fixed", bottom:"75.5vh", left:"41.8vw"}}>6+</b> */}
+                    <b className="gameChestText" style={{ fontSize: "1.7em", position:"relative", left:"0.8em", top:"1.3em"}}>6+</b>
+                {/* </div> */}
+            </div>
+        );
     }
     // function getBool() {
     //   console.log("got bool", testBoolean)
@@ -50,6 +62,9 @@ class PlayersSelector extends Component {
                 {this.generatePlayerButton(1)}
                 {this.generatePlayerButton(2)}
                 {this.generatePlayerButton(3)}
+                {this.generatePlayerButton(4)}
+                {this.generatePlayerButton(5)}
+                {this.generateMaxPlayersButton()}
             </div>
         );
     }
