@@ -3,8 +3,10 @@ import React, {Component} from 'react';
 //         Switch,
 //         Route} from 'react-router-dom'
 // import logo from './logo.svg';
-import {Navbar} from 'reactstrap'
+import {Navbar, Media} from 'reactstrap'
 import SidebarItem from '../../components/SidebarItem/SidebarItem'
+import person from './assets/personIcon.svg'
+import PlayerSelector from '../../components/PlayersSelector/PlayersSelector'
 // import './App.css';
 // import { render } from 'react-dom';
 
@@ -60,15 +62,16 @@ class MainPage extends Component {
             <h1 className="gameChestText">Game Chest</h1>
           </Navbar>
           <div style={{width: "100%", display:"table", height:"50.8rem"}}>
-            <div style={{display: "table-row"}}>
-              <div style={{width:"16vw", display: "table-cell", borderStyle:"solid", borderColor: "#707070", borderWidth: "5px",textAlign: "center"}}>
+            <div style={{display: ""}}>
+              <div style={{width:"16vw", float:"left", borderStyle:"solid", borderColor: "#707070", borderWidth: "5px",textAlign: "center"}}>
                 <SidebarItem buttonText="Filter By" buttonColor="#4476FF"/>
                 <div style={{backgroundColor:"black", height:"6px"}}/>
                 {this.getFilterButtons()}
               </div>
-              <div style={{display: "table-cell"}}>
-                <div style={{backgroundColor:"#6B8CE6", borderColor:"#F5F5F5", borderStyle:"solid", borderWidth:"5px", height:"75px", boxSizing:"border-box"}}>
-
+              <div style={{display: "block"}}>
+                <div style={{backgroundColor:"#6B8CE6", marginLeft:"16.5vw", borderColor:"#F5F5F5", borderStyle:"solid", borderWidth:"5px", height:"75px", boxSizing:"border-box"}}>
+                   <b className="gameChestText" style={{float:"left", fontSize:"35pt", marginLeft:"0.2em"}}>Players</b>
+                   <PlayerSelector/>
                 </div>
               </div>
             </div>
@@ -76,28 +79,6 @@ class MainPage extends Component {
           {/* hello */}
           </div>
     );
-
-    // return (
-    //   <div className="App">
-    //     <header className="App-header">
-    //       <img src={logo} className="App-logo" alt="logo" />
-    //       <p>
-    //         Edit <code>src/App.js</code> Hello world! and save to reload.
-    //       </p>
-    //       <a
-    //         className="App-link"
-    //         href="https://reactjs.org"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         Learn React
-    //       </a>
-    //       <Input type="text" name="testInput" id="tagID" placeholder="ABCDEF" value={this.state.textInput} onChange={this.onChange}> </Input>
-    //       <button onClick={() => this.switchBool()}>{this.state.toggle ? "True" : "False"}</button>
-    //       {this.state.textInput}
-    //     </header>
-    //   </div>
-    // );
   }
 }
 
