@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-import './SignupPage.css'
+import './LoginPage.css'
 import {
     Col, Form,
     FormGroup, Label, Input,
     Button,
-    Table,
 } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
 const colStyle =
 {
-    margin: "0pt",
-    padding: "25pt",
+    margin: "15pt",
     fontSize: "24pt",
+
 };
 
 
-class SignupPage extends Component {
+class LoginPage extends Component {
 
     constructor(props) {
         super(props);
@@ -54,7 +53,7 @@ class SignupPage extends Component {
                     <div className="buffer">
 
                     </div>
-                    <Form className="form">
+                    <Form className="forma">
                         <Col style={colStyle}>
                             <FormGroup>
                                 <table align="right">
@@ -91,44 +90,9 @@ class SignupPage extends Component {
                                 </table>
                             </FormGroup>
                         </Col>
-                        <Col style={colStyle}>
-                            <FormGroup>
-                                <table align="right">
-                                    <td alignContent="left" width="100%">
-                                        <Label>Confirm Password</Label>
-                                    </td>
-                                    <td>
-                                        <Input
-                                            style={{ width: "250px" }}
-                                            type="password"
-                                            name="Confrim"
-                                            id="exampleConfirm"
-                                            placeholder="***********"
-                                        />
-                                    </td>
-                                </table>
-                            </FormGroup>
-                        </Col>
-                        <Col style={colStyle}>
-                            <FormGroup>
-                                <table align="right">
-                                    <td alignContent="left" width="100%">
-                                        <Label>Email</Label>
-                                    </td>
-                                    <td>
-                                        <Input
-                                            style={{ width: "250px" }}
-                                            type="email"
-                                            name="Email"
-                                            id="exampleEmail"
-                                            placeholder="person@people.com"
-                                        />
-                                    </td>
-                                </table>
-                            </FormGroup>
-                        </Col>
+
                         {this.renderRedirect()}
-                        <button className="signbutton" style={{WebkitTextStroke: "0.02em black",}} onClick={this.setRedirect}>Submit</button>
+                        <button className="logbutton" onClick={this.setRedirect}>Submit</button>
                     </Form>
                 </div>
             </div>
@@ -136,4 +100,4 @@ class SignupPage extends Component {
     }
 }
 
-export default SignupPage;
+export default LoginPage;
