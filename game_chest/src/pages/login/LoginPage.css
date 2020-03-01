@@ -1,22 +1,23 @@
-
 .background
 {
     background-color: #a6b7e4;
     height: 823px;
 }
-.form
+
+.forma
 {
     
     background-color: #4476FF;
     box-shadow: 4px 4px rgba(0, 0, 0, .4);
     margin: auto;
     background-size: 95%;
-    height: 400px;
+    height: 250px;
     width: 601px;
     border-radius: 25px;
+    padding-top: 10px;
     
 }
-.signbutton
+.logbutton
 {
     margin-top: 24px;
     background-image: url("./Button.png");
@@ -26,8 +27,4 @@
     color: white;
     font-size: 32px;
 
-}
-.buffer
-{
-    height: 50px;
 }
