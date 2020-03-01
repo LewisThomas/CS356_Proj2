@@ -8,6 +8,7 @@ import SidebarItem from '../../components/SidebarItem/SidebarItem'
 import person from './assets/personIcon.svg'
 import PlayerSelector from '../../components/PlayersSelector/PlayersSelector'
 import clockIcon from './assets/clockIcon.svg'
+import GameLengthSelector from '../../components/GameLengthSelector/GameLengthSelector';
 // import './App.css';
 // import { render } from 'react-dom';
 
@@ -74,8 +75,8 @@ class MainPage extends Component {
                    <b className="gameChestText" style={{float:"left", fontSize:"35pt", marginLeft:"0.2em"}}>Players</b>
                    <PlayerSelector/>
                    <div style={{float:"right"}}>
-
-                      <Media object src={clockIcon} width="67" height="67" ></Media>
+                      <GameLengthSelector />
+                      {/* <Media object src={clockIcon} width="67" height="67" ></Media> */}
                    </div>
                 </div>
               </div>
