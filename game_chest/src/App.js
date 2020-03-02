@@ -40,6 +40,10 @@ class App extends Component {
       textInput: event.target.value 
     })
   }
+  
+  componentDidMount = () => {
+    document.title = "Game Chest"
+  }
 
   // function getBool() {
   //   console.log("got bool", testBoolean)
