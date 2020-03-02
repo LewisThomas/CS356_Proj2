@@ -28,6 +28,8 @@ class MainPage extends Component {
     this.getFilterButtons = this.getFilterButtons.bind(this);
     this.switchBool = this.switchBool.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.updateMinutes= this.updateMinutes.bind(this);
+    this.updatePlayersSelected = this.updatePlayersSelected.bind(this);
     this.allGames = [new Game("test1", 2, 4, 90, [], chessImage), new Game("test2", 2, 4, 90, [], rookImage), new Game("test3", 2, 4, 90, [], chessImage), new Game("test4", 2, 4, 90, [], chessImage),
     new Game("test5", 2, 4, 90, [], chessImage),new Game("test6", 2, 4, 90, [], chessImage),new Game("test7", 2, 4, 90, [], chessImage),];
     this.state = {
@@ -35,7 +37,8 @@ class MainPage extends Component {
       textInput: "",
       newTagName: "",
       sideBarNames: ["Dice", "Strategy"],
-      minutes: 20
+      minutes: 20, // default value, magic number
+      playersSelected: 4 // default value, magic number
     };
   }
 
@@ -85,6 +88,17 @@ class MainPage extends Component {
     })
   }
 
+  updatePlayersSelected = (num) => {
+    this.setState({
+      playersSelected: num
+    })
+  }
+
+  componentDidUpdate = () => {
+    console.log("main page updated, its state is now")
+    console.log(this.state)
+  }
+
   // function getBool() {
   //   console.log("got bool", testBoolean)
   //   return testBoolean;
@@ -110,7 +124,7 @@ class MainPage extends Component {
             <div style={{ display: "block" }}>
               <div style={{ backgroundColor: "#6B8CE6", marginLeft: "16.5vw", borderColor: "#F5F5F5", borderStyle: "solid", borderWidth: "5px", height: "85px", boxSizing: "border-box" }}>
                 <b className="gameChestText" style={{ float: "left", fontSize: "35pt", marginLeft: "0.2em" }}>Players</b>
-                <PlayerSelector />
+                <PlayerSelector updatePlayers={this.updatePlayersSelected}/>
                 <div style={{ float: "right" }}>
                   <GameLengthSelector minutesUpdated={this.updateMinutes}/>
                   {/* <Media object src={clockIcon} width="67" height="67" ></Media> */}
