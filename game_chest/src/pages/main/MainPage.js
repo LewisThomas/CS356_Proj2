@@ -24,6 +24,7 @@ import yahtzee from './assets/yahtzee.jpeg'
 import catan from './assets/Catan.jpg'
 import dice from './assets/Dice.jpg'
 import nevermore from './assets/nevermore.jpg'
+import addGameButton from './assets/addGameButton.png'
 // import './App.css';
 // import { render } from 'react-dom';
 
@@ -189,6 +190,8 @@ class MainPage extends Component {
   render() {
     return (
       <div style={{ height: "100%" }}>
+        
+        <Media object style={{position:"absolute", right:"2em", "bottom":"2em"}} src={addGameButton} width="72" height="86.4"></Media>
         <Navbar style={{ backgroundColor: "#4476FF", margin: "0pt", textAlign: "center" }}>
           <h1 style={{}} className="gameChestText">Game Chest</h1>
 
