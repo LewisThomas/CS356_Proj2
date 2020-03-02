@@ -64,7 +64,7 @@ class BottomSideBarItem extends Component {
 
                 <div style={{ backgroundColor: this.props.buttonColor, margin: "5px", height: "79px", textAlign: "center", paddingTop: "10px", width: '15.4vw', position: 'fixed', bottom: 5 }} >
                     <form height="79px" onSubmit={this.submitHandler}>
-                        <input type="text" onChange={this.changeHandler}/>
+                        <input className="inputBox" type="text" height="30px" onChange={this.changeHandler}/>
                     </form>
                 </div>
             );

@@ -5,7 +5,7 @@ class Game
         this.name = name;
         this.minPlayers = minPlayers;
         this.maxPlayers = maxPlayers;
-        this.aveTimeinMin = aveTimeinMin;
+        this.time = aveTimeinMin;
         this.tags = tags;
         this.image = image
     }

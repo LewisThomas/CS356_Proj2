@@ -15,7 +15,15 @@ import Game from './Game'
 import GameCard from '../../components/GameCard/GameCard';
 import chessImage from './assets/king.png'
 import rookImage from './assets/rook.jpg'
-import { CommunicationStayCurrentLandscape } from 'material-ui/svg-icons';
+import monopoly from './assets/monopoly.jpg'
+import talisman from './assets/talisman.jpeg'
+import bunnies from './assets/Bunnies.jpg'
+import phase from './assets/phase10.jpg'
+import uno from './assets/Uno.png'
+import yahtzee from './assets/yahtzee.jpeg'
+import catan from './assets/Catan.jpg'
+import dice from './assets/Dice.jpg'
+import nevermore from './assets/nevermore.jpg'
 // import './App.css';
 // import { render } from 'react-dom';
 
@@ -30,17 +38,25 @@ class MainPage extends Component {
     this.onChange = this.onChange.bind(this);
     this.onTagClicked = this.onTagClicked.bind(this);
     this.makeSideBarItemFromName = this.makeSideBarItemFromName.bind(this);
-    this.updateMinutes= this.updateMinutes.bind(this);
+    this.updateMinutes = this.updateMinutes.bind(this);
     this.updatePlayersSelected = this.updatePlayersSelected.bind(this);
-    this.allGames = [new Game("test1", 2, 4, 90, [], chessImage), new Game("test2", 2, 4, 90, [], rookImage), new Game("test3", 2, 4, 90, [], chessImage), new Game("test4", 2, 4, 90, [], chessImage),
-    new Game("test5", 2, 4, 90, [], chessImage), new Game("test6", 2, 4, 90, [], chessImage), new Game("test7", 2, 4, 90, [], chessImage),];
+    this.filterGames = this.filterGames.bind(this);
+    this.allGames = [new Game("Monopoly", 2, 6, 180, ["dice", "party"], monopoly),
+      new Game("Talisman", 2, 6, 180, ["dice", "difficult", "cards"], talisman),
+      new Game("Killer Bunnies", 3, 6, 90, ["cards", "party"], bunnies),
+      new Game("Phase 10", 2, 6, 90, ["cards", "party"], phase),
+      new Game("Uno", 2, 6, 10, ["card", "party"], uno),
+      new Game("Yahtzee", 2, 6, 30, ["dice", "party"], yahtzee),
+      new Game("Settlers of Catan", 3, 4, 90, ["dice"], catan),
+      new Game("Nevermore", 2, 6, 45, ["cards", "difficult"], nevermore),
+      new Game("Dice Fordge", 2, 4, 45, ["dice", "difficult"], dice)];
     this.state = {
       toggle: false,
       textInput: "",
       newTagName: "",
-      sideBarNames: ["Dice", "Strategy"],
+      sideBarNames: ["dice", "cards", "party"],
       selectedTags: [],
-      minutes: 20, // default value, magic number
+      minutes: 180, // default value, magic number
       playersSelected: 4 // default value, magic number
     };
   }
@@ -79,9 +95,8 @@ class MainPage extends Component {
       this.setState({
         selectedTags: temp
       })
-      
+
     }
-    console.log(this.state.selectedTags)
   }
 
   onTextChange = (event) => {
@@ -94,16 +109,45 @@ class MainPage extends Component {
       textInput: event.target.value
     })
   }
+  filterGames = (game) =>
+  { 
+    var passed = true;
+    if(this.state.selectedTags.length > 0)
+    {
+      
+      var i = 0;
+      for(i = 0; i<this.state.selectedTags.length; i++)
+      {
+        var g = 0;
+        var hasMatchingTag = false;
+        for(g = 0; g < game.tags.length; g++)
+        {
+          if(game.tags[g] === this.state.selectedTags[i])
+          {
+            hasMatchingTag = true;
+            break;
+          }
+        }
+        passed = passed && hasMatchingTag;
 
+
+      }
+    }
+    passed = passed && (game.minPlayers <= this.state.playersSelected && game.maxPlayers >= this.state.playersSelected);
+    passed = passed && (game.time <= this.state.minutes);
+    return passed;
+  }
   getFilteredGameCards = () => {
+    //console.log(this.allGames)
     var filteredGames = this.allGames;
+    filteredGames = filteredGames.filter(this.filterGames);
     return filteredGames.map(function (v, i) {
       return <GameCard gameName={v.name} gameImage={v.image} />
     })
   }
 
   makeSideBarItemFromName = (v) => {
-    return <SidebarItem buttonText={v} buttonColor="#6B8CE6" onChange={this.onTagClicked}/>
+    return <SidebarItem buttonText={v} buttonColor="#6B8CE6" onChange={this.onTagClicked} />
   }
 
   getFilterButtons = () => {
@@ -144,7 +188,7 @@ class MainPage extends Component {
         <div style={{ width: "100%", display: "table", height: "50.8rem" }}>
           <div style={{ display: "" }}>
             <div style={{ width: "16vw", float: "left", borderStyle: "solid", borderColor: "#707070", borderWidth: "5px", textAlign: "center", height: "780px" }}>
-              <SidebarItem buttonText="Filter By" buttonColor="#4476FF"  />
+              <SidebarItem buttonText="Filter By" buttonColor="#4476FF" />
               <div style={{ backgroundColor: "black", height: "6px" }} />
               {this.getFilterButtons()}
               <BottomSidebarItem buttonText="Add Tag" buttonColor="#4476FF" value={this.state.newTagName} onChange={this.onTextSubmit}>
@@ -153,9 +197,9 @@ class MainPage extends Component {
             <div style={{ display: "block" }}>
               <div style={{ backgroundColor: "#6B8CE6", marginLeft: "16.5vw", borderColor: "#F5F5F5", borderStyle: "solid", borderWidth: "5px", height: "85px", boxSizing: "border-box" }}>
                 <b className="gameChestText" style={{ float: "left", fontSize: "35pt", marginLeft: "0.2em" }}>Players</b>
-                <PlayerSelector updatePlayers={this.updatePlayersSelected}/>
+                <PlayerSelector updatePlayers={this.updatePlayersSelected} />
                 <div style={{ float: "right" }}>
-                  <GameLengthSelector minutesUpdated={this.updateMinutes}/>
+                  <GameLengthSelector minutesUpdated={this.updateMinutes} />
                   {/* <Media object src={clockIcon} width="67" height="67" ></Media> */}
                 </div>
               </div>

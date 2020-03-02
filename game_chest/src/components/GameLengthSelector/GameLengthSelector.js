@@ -19,7 +19,7 @@ class GameLengthSelector extends Component {
         this.getSliderMinutes = this.getSliderMinutes.bind(this);
         // let text = this.props.buttonText
         this.state = {
-            minutes: 20
+            minutes: 180
         };
     }
     setRedirect = () => {
@@ -61,14 +61,14 @@ class GameLengthSelector extends Component {
     render() {
         return (
             <div style={{float:"right", display:"inline"}}>
-                <div style={{float: "right" , marginRight:"1em"}}>
+                <div style={{float: "right" , marginRight:"1em", marginLeft:"1.5em"}}>
                     <b className="gameChestText" style={{fontSize:"3em"}}>Minutes</b>
                 </div>
                 <div style={{float: "right", width:"3.5vw" }}>
                     <b className="gameChestText" style={{fontSize:"3em"}}> {this.getSliderMinutes()}</b>
                 </div>
                 <div style={{ float:"right", width:"17vw", marginRight:"2em", marginLeft:"2em", marginTop:"0.6em"}}>
-                    <Slider  color="black" min={0} max={60} onChange={this.updateTargetMinutes} onChangeComplete={this.props.minutesUpdated}/>
+                    <Slider  color="black" min={20} max={180} onChange={this.updateTargetMinutes} onChangeComplete={this.props.minutesUpdated}/>
                     {/* <Slider defaultValue={20} min={0} max={60} marks={true} step={5} /> */}
                 </div>
                 <div style={{ float: "right" }}>

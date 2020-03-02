@@ -1,5 +1,6 @@
-#input[type="text"]
+.inputBox
 {
-    font-size: 32px;
-    size: 42px;
+    font-size: 42px;
+    height: 64px;
+    width: 14vw;
 }
