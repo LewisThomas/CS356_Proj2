@@ -184,7 +184,7 @@ class MainPage extends Component {
   // 
 
   redirect = () => {
-    window.location = "/splash"
+    window.location = "/"
   }
 
   render() {
