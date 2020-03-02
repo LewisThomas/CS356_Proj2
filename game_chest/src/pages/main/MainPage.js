@@ -179,12 +179,20 @@ class MainPage extends Component {
   // prim color #4476FF
   // secondary color #6B8CE6
   // 
+
+  redirect = () => {
+    window.location = "/splash"
+  }
+
   render() {
     return (
       <div style={{ height: "100%" }}>
         <Navbar style={{ backgroundColor: "#4476FF", margin: "0pt", textAlign: "center" }}>
-          <h1 className="gameChestText">Game Chest</h1>
+          <h1 style={{}} className="gameChestText">Game Chest</h1>
+
         </Navbar>
+          <button style={{position:"absolute", right:"1em", top:"0.8em", background:"#6B8CE6"}} className="logbutton" onClick={this.redirect}>
+            <b className="gameChestText" style={{fontSize:"1em"}}>Log Out</b></button>
         <div style={{ width: "100%", display: "table", height: "50.8rem" }}>
           <div style={{ display: "" }}>
             <div style={{ width: "16vw", float: "left", borderStyle: "solid", borderColor: "#707070", borderWidth: "5px", textAlign: "center", height: "780px" }}>
