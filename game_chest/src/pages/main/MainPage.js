@@ -34,7 +34,8 @@ class MainPage extends Component {
       toggle: false,
       textInput: "",
       newTagName: "",
-      sideBarNames: ["Dice", "Strategy"]
+      sideBarNames: ["Dice", "Strategy"],
+      minutes: 20
     };
   }
 
@@ -78,6 +79,12 @@ class MainPage extends Component {
     })
   }
 
+  updateMinutes = (num) => {
+    this.setState({
+      minutes: num
+    })
+  }
+
   // function getBool() {
   //   console.log("got bool", testBoolean)
   //   return testBoolean;
@@ -105,7 +112,7 @@ class MainPage extends Component {
                 <b className="gameChestText" style={{ float: "left", fontSize: "35pt", marginLeft: "0.2em" }}>Players</b>
                 <PlayerSelector />
                 <div style={{ float: "right" }}>
-                  <GameLengthSelector />
+                  <GameLengthSelector minutesUpdated={this.updateMinutes}/>
                   {/* <Media object src={clockIcon} width="67" height="67" ></Media> */}
                 </div>
               </div>
