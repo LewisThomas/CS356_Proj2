@@ -5,7 +5,7 @@ import {
     Media
 } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
-// import { Slider } from 'material-ui-slider'
+import { Slider } from 'material-ui-slider'
 import clockIcon from './assets/clockIcon.svg'
 
 class GameLengthSelector extends Component {
@@ -14,10 +14,12 @@ class GameLengthSelector extends Component {
         super(props);
 
         //this.switchBool = this.switchBool.bind(this);
-        //this.onChange = this.onChange.bind(this);
+        // this.onChange = this.onChange.bind(this);
+        this.updateTargetMinutes = this.updateTargetMinutes.bind(this);
+        this.getSliderMinutes = this.getSliderMinutes.bind(this);
         // let text = this.props.buttonText
         this.state = {
-            redirect: false
+            minutes: 20
         };
     }
     setRedirect = () => {
@@ -35,10 +37,7 @@ class GameLengthSelector extends Component {
         return (
             <div style={{float:"left"}}>
                 {/* <Media object src={person} width="67" height="67" ></Media>
-                <b className="gameChestText" style={{fontSize:"1.7em", marginLeft:"-1.5em", marginTop:"-2em", marginRight:"0.6em"}}>{playerNum}</b> */}
-            </div>
-        )
-    }
+                <b className="gameChestText" style={{fontSize:"1.7em", marginLeft:"-1.5em", marginTop:"-2em", marginRight:"0.6em"}}>{playerNum}</b> */} </div>) }
     generateMaxPlayersButton = () => {
     }
     // function getBool() {
@@ -47,11 +46,32 @@ class GameLengthSelector extends Component {
     // }
     //<Input type="text" name="testInput" id="tagID" placeholder="ABCDEF" value={this.state.textInput} onChange={this.onChange} />
 
+    getSliderMinutes = () => {
+        return this.state.minutes;
+    }
+
+    updateTargetMinutes = (num) => {
+        this.setState({
+            minutes: num
+        })
+    }
+
     render() {
         return (
-            <div>
-                <Media object src={clockIcon} width="67" height="67" ></Media>
-                {/* <Slider />  */}
+            <div style={{float:"right", display:"inline"}}>
+                <div style={{float: "right" , marginRight:"1em"}}>
+                    <b className="gameChestText" style={{fontSize:"3em"}}>Minutes</b>
+                </div>
+                <div style={{float: "right", width:"3.5vw" }}>
+                    <b className="gameChestText" style={{fontSize:"3em"}}> {this.getSliderMinutes()}</b>
+                </div>
+                <div style={{ float:"right", width:"17vw", marginRight:"2em", marginLeft:"2em", marginTop:"0.6em"}}>
+                    <Slider  color="black" min={0} max={60} onChange={this.updateTargetMinutes}/>
+                    {/* <Slider defaultValue={20} min={0} max={60} marks={true} step={5} /> */}
+                </div>
+                <div style={{ float: "right" }}>
+                    <Media object src={clockIcon} width="67" height="67" style={{ float: "right" }}></Media>
+                </div>
             </div>
         );
     }
