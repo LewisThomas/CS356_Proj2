@@ -197,7 +197,7 @@ class MainPage extends Component {
             <b className="gameChestText" style={{fontSize:"1em"}}>Log Out</b></button>
         <div style={{ width: "100%", display: "table", height: "50.8rem" }}>
           <div style={{ display: "" }}>
-            <div style={{ width: "16vw", float: "left", borderStyle: "solid", borderColor: "#707070", borderWidth: "5px", textAlign: "center", height: "780px" }}>
+            <div style={{ width: "16vw", float: "left", borderStyle: "solid", borderColor: "#707070", borderWidth: "5px", textAlign: "center", height: "2000px" }}>
               <SidebarItem buttonText="Filter By" buttonColor="#4476FF" />
               <div style={{ backgroundColor: "black", height: "6px" }} />
               {this.getFilterButtons()}
