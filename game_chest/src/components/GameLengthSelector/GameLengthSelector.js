@@ -56,6 +56,8 @@ class GameLengthSelector extends Component {
         })
     }
 
+
+
     render() {
         return (
             <div style={{float:"right", display:"inline"}}>
@@ -66,7 +68,7 @@ class GameLengthSelector extends Component {
                     <b className="gameChestText" style={{fontSize:"3em"}}> {this.getSliderMinutes()}</b>
                 </div>
                 <div style={{ float:"right", width:"17vw", marginRight:"2em", marginLeft:"2em", marginTop:"0.6em"}}>
-                    <Slider  color="black" min={0} max={60} onChange={this.updateTargetMinutes}/>
+                    <Slider  color="black" min={0} max={60} onChange={this.updateTargetMinutes} onChangeComplete={this.props.minutesUpdated}/>
                     {/* <Slider defaultValue={20} min={0} max={60} marks={true} step={5} /> */}
                 </div>
                 <div style={{ float: "right" }}>
