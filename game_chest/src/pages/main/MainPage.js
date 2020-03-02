@@ -41,15 +41,15 @@ class MainPage extends Component {
     this.updateMinutes = this.updateMinutes.bind(this);
     this.updatePlayersSelected = this.updatePlayersSelected.bind(this);
     this.filterGames = this.filterGames.bind(this);
-    this.allGames = [new Game("Monopoly", 2, 6, 180, ["dice", "party"], monopoly),
-      new Game("Talisman", 2, 6, 180, ["dice", "difficult", "cards"], talisman),
-      new Game("Killer Bunnies", 3, 6, 90, ["cards", "party"], bunnies),
-      new Game("Phase 10", 2, 6, 90, ["cards", "party"], phase),
-      new Game("Uno", 2, 6, 10, ["card", "party"], uno),
-      new Game("Yahtzee", 2, 6, 30, ["dice", "party"], yahtzee),
-      new Game("Settlers of Catan", 3, 4, 90, ["dice"], catan),
-      new Game("Nevermore", 2, 6, 45, ["cards", "difficult"], nevermore),
-      new Game("Dice Fordge", 2, 4, 45, ["dice", "difficult"], dice)];
+    this.allGames = [new Game("Monopoly", 2, 6, 180, ["Dice", "Party"], monopoly),
+      new Game("Talisman", 2, 6, 180, ["Dice", "Difficult", "Cards"], talisman),
+      new Game("Killer Bunnies", 3, 6, 90, ["Cards", "Party"], bunnies),
+      new Game("Phase 10", 2, 6, 90, ["Cards", "Party"], phase),
+      new Game("Uno", 2, 6, 10, ["Card", "Party"], uno),
+      new Game("Yahtzee", 2, 6, 30, ["Dice", "Party"], yahtzee),
+      new Game("Settlers of Catan", 3, 4, 90, ["Dice"], catan),
+      new Game("Nevermore", 2, 6, 45, ["Cards", "Difficult"], nevermore),
+      new Game("Dice Fordge", 2, 4, 45, ["Dice", "difficult"], dice)];
     this.state = {
       toggle: false,
       textInput: "",
@@ -147,7 +147,9 @@ class MainPage extends Component {
   }
 
   makeSideBarItemFromName = (v) => {
-    return <SidebarItem buttonText={v} buttonColor="#6B8CE6" onChange={this.onTagClicked} />
+    var temp = v;
+    temp = temp.charAt(0).toUpperCase() + temp.slice(1);
+    return <SidebarItem buttonText={temp} buttonColor="#6B8CE6" onChange={this.onTagClicked} />
   }
 
   getFilterButtons = () => {
