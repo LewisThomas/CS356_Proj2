@@ -94,10 +94,10 @@ class MainPage extends Component {
     })
   }
 
-  componentDidUpdate = () => {
-    console.log("main page updated, its state is now")
-    console.log(this.state)
-  }
+  // componentDidUpdate = () => {
+  //   console.log("main page updated, its state is now")
+  //   console.log(this.state)
+  // }
 
   // function getBool() {
   //   console.log("got bool", testBoolean)
