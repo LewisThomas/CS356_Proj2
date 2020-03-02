@@ -9,12 +9,16 @@
     background-repeat: no-repeat;
     background-size: 1920px 1080px ;
     align-content: center;
-    height: 823px;
+    height: 100%;
+}
+
+.App {
+    height: 100%;
 }
 .signupbutton
 {
     
-    margin-top: 180px;
+    margin-top: 140px;
     background-image: url("./splashbutton.png");
     background-size: cover;
     height: 150px;
