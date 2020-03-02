@@ -15,6 +15,7 @@ import Game from './Game'
 import GameCard from '../../components/GameCard/GameCard';
 import chessImage from './assets/king.png'
 import rookImage from './assets/rook.jpg'
+import { CommunicationStayCurrentLandscape } from 'material-ui/svg-icons';
 // import './App.css';
 // import { render } from 'react-dom';
 
@@ -24,17 +25,19 @@ class MainPage extends Component {
 
   constructor(props) {
     super(props);
-
     this.getFilterButtons = this.getFilterButtons.bind(this);
     this.switchBool = this.switchBool.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.onTagClicked = this.onTagClicked.bind(this);
+    this.makeSideBarItemFromName = this.makeSideBarItemFromName.bind(this);
     this.allGames = [new Game("test1", 2, 4, 90, [], chessImage), new Game("test2", 2, 4, 90, [], rookImage), new Game("test3", 2, 4, 90, [], chessImage), new Game("test4", 2, 4, 90, [], chessImage),
-    new Game("test5", 2, 4, 90, [], chessImage),new Game("test6", 2, 4, 90, [], chessImage),new Game("test7", 2, 4, 90, [], chessImage),];
+    new Game("test5", 2, 4, 90, [], chessImage), new Game("test6", 2, 4, 90, [], chessImage), new Game("test7", 2, 4, 90, [], chessImage),];
     this.state = {
       toggle: false,
       textInput: "",
       newTagName: "",
-      sideBarNames: ["Dice", "Strategy"]
+      sideBarNames: ["Dice", "Strategy"],
+      selectedTags: []
     };
   }
 
@@ -52,6 +55,29 @@ class MainPage extends Component {
     this.setState({
       sideBarNames: temp
     })
+  }
+
+  onTagClicked = (value, bool) => {
+    if (bool) {
+      var temp = this.state.selectedTags
+      temp.push(value);
+      this.setState({
+        selectedTags: temp
+      })
+    }
+    else {
+      var temp = this.state.selectedTags
+      for (var i = 0; i < temp.length; i++) {
+        if (temp[i] === value) {
+          temp.splice(i, 1); i--;
+        }
+      }
+      this.setState({
+        selectedTags: temp
+      })
+      
+    }
+    console.log(this.state.selectedTags)
   }
 
   onTextChange = (event) => {
@@ -72,10 +98,13 @@ class MainPage extends Component {
     })
   }
 
+  makeSideBarItemFromName = (v) => {
+    return <SidebarItem buttonText={v} buttonColor="#6B8CE6" onChange={this.onTagClicked}/>
+  }
+
   getFilterButtons = () => {
-    return this.state.sideBarNames.map(function (v, i) {
-      return <SidebarItem buttonText={v}  buttonColor="#6B8CE6" />
-    })
+    var temp = this.onTagClicked;
+    return this.state.sideBarNames.map(this.makeSideBarItemFromName);
   }
 
   // function getBool() {
@@ -94,7 +123,7 @@ class MainPage extends Component {
         <div style={{ width: "100%", display: "table", height: "50.8rem" }}>
           <div style={{ display: "" }}>
             <div style={{ width: "16vw", float: "left", borderStyle: "solid", borderColor: "#707070", borderWidth: "5px", textAlign: "center", height: "780px" }}>
-              <SidebarItem buttonText="Filter By" buttonColor="#4476FF" />
+              <SidebarItem buttonText="Filter By" buttonColor="#4476FF"  />
               <div style={{ backgroundColor: "black", height: "6px" }} />
               {this.getFilterButtons()}
               <BottomSidebarItem buttonText="Add Tag" buttonColor="#4476FF" value={this.state.newTagName} onChange={this.onTextSubmit}>
