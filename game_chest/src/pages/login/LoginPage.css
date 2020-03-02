@@ -1,7 +1,11 @@
 .background
 {
     background-color: #a6b7e4;
-    height: 823px;
+    height: 100%;
+}
+
+.App {
+    height: 100%;
 }
 
 .forma
